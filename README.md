@@ -1,1 +1,1 @@
-# saas-template
+# cursor-template

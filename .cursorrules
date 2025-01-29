@@ -1,0 +1,27 @@
+{
+  "projectOverview": "This project is a simple collection of requirements, folders and file structure for a SaaS project.",
+  "personality": "",
+  "techStack": {
+    "frontend": "Next.js (React)",
+    "backend": "FastAPI (Python) OR Node.js (Express/NestJS)",
+    "database": "PostgreSQL (Supabase)",
+    "aiApiHandling": "OpenAI API + Hugging Face + Custom ML models",
+    "queueAsync": "Celery (Python) OR BullMQ (Node.js)",
+    "hosting": "Vercel (frontend) + Railway/Fly.io (backend)",
+    "observability": "Sentry + Prometheus"
+  },
+  "errorFixingProcess": "",
+  "buildingProcess": "",
+  "envVariables": {
+    "backend": "backend/.env",
+    "frontend": "frontend/.env"
+  },
+  "currentFileStructure": "",
+  "githubPushProcess": "",
+  "important": "Repeat the most important instructions.",
+  "otherContext": "",
+  "comments": [
+    "Make sure to ALWAYS include comments in your code.",
+    "Do not delete comments unless they are no longer needed."
+  ]
+}

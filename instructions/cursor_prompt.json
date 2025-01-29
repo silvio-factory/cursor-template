@@ -1,0 +1,65 @@
+{
+  "title": "Best prompts to use with cursor",
+  "prompts": [
+    {
+      "prompt": "The fewer lines of code, the better.",
+      "explanation": "It will reduce the amount of code."
+    },
+    {
+      "prompt": "Proceed like a senior developer.",
+      "explanation": "It will make the model more confident."
+    },
+    {
+      "prompt": "Do not stop until you complete... Do not stop working on this until you've implemented this feature fully and completely.",
+      "explanation": "Reduces the laziness of the model."
+    },
+    {
+      "prompt": "Write 3 reasoning paragraphs about this and that mistake... Start by writing three reasoning paragraphs analyzing what the error might be. Do not jump to conclusions.",
+      "explanation": "You do not want the model to say \"I know where the error is\""
+    },
+    {
+      "prompt": "Answer in short.",
+      "explanation": "Self explanatory."
+    },
+    {
+      "prompt": "Do not delete comments",
+      "explanation": "Self explanatory."
+    },
+    {
+      "prompt": "Summary of current state... Before we proceed, I need you to give me a summary of the current state. Summarize what we just did, which files were updated, and what didn't work. Do not include assumptions or theories—only the facts.",
+      "explanation": "Makes the model contextualize the code. This needs to be used when switching to a new AI model."
+    },
+    {
+      "prompt": "Unbiased 50/50: Before you answer, I want you to write two detailed paragraphs, one arguing for each solution. Do not jump to conclusions or commit to either solution until you have fully considered both. Then tell me which solution is obviously better and why.",
+      "explanation": "Makes the model contextualize the code."
+    },
+    {
+      "prompt": "Properly formed search query. Your task is to write a one-paragraph search query as if you were instructing a human researcher. Clearly state what to find and request code snippets or technical details when relevant.",
+      "explanation": "If you're stuck in some errors, a websearh can be good for Cursor. Tag the @Web."
+    },
+    {
+      "prompt": "Start the reasoning paragraph with uncertainty. You should start the reasoning paragraph with lots of uncertainty and slowly gain confidence as you think about the item more.",
+      "explanation": "Makes the model more confident."
+    },
+    {
+      "prompt": "Be careful with red herrings. Give me the TL;DR of the search results, but be careful. Often the search results contain dangerous and distracting red herrings.",
+      "explanation": "If you're stuck in some errors, a websearh can be good for Cursor. Tag the @Web."
+    },
+    {
+      "prompt": "Only include truly necessary steps",
+      "explanation": "Break this large change into the required steps. Only include the truly necessary steps."
+    }
+  ],
+  "composerInstructions": {
+    "title": "Information to give to the Composer",
+    "steps": [
+      "Tell what you are doing.",
+      "Tag relevant files.",
+      "How to execute and what to do.",
+      "Context Dump with web stuff if needed.",
+      "------------ (Divider to explain the model it needs to be focused for the next tasks)",
+      "Repeat the core instructions (Point 1) to give it importance.",
+      "Output Format (Like answer in short, do not write any code, etc...)"
+    ]
+  }
+}
