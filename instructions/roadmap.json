@@ -1,0 +1,56 @@
+{
+  "project overview": {
+    "description": "This project is a simple collection of requirements, folders and file structure for a SaaS project.",
+    "techStack": {
+      "frontend": "Next.js (React)",
+      "backend": "FastAPI (Python) OR Node.js (Express/NestJS)",
+      "database": "PostgreSQL (Supabase)",
+      "aiApiHandling": "OpenAI API + Hugging Face + Custom ML models",
+      "queueAsync": "Celery (Python) OR BullMQ (Node.js)",
+      "hosting": "Vercel (frontend) + Railway/Fly.io (backend)",
+      "observability": "Sentry + Prometheus"
+    }
+  },
+
+  "learnings": {
+    "proxyConfiguration": {
+      "description": "Key learnings about handling proxy configuration issues in the project",
+      "commonIssues": {
+        "symptom": "Connection failures to github.com on port 443",
+        "defaultProxy": {
+          "http": "http://127.0.0.1:Port of the moment (VPN always changes it)",
+          "https": "http://127.0.0.1:Port of the moment (VPN always changes it)"
+        }
+      },
+      "usefulCommands": {
+        "checkProxy": {
+          "git": [
+            "git config --global --get http.proxy",
+            "git config --global --get https.proxy"
+          ],
+          "system": {
+            "windows": "netsh winhttp show proxy",
+            "linux_mac": "env | grep -i proxy"
+          }
+        },
+        "setProxy": {
+          "git": [
+            "git config --global http.proxy http://127.0.0.1:50598",
+            "git config --global https.proxy http://127.0.0.1:50598"
+          ]
+        },
+        "removeProxy": [
+          "git config --global --unset http.proxy",
+          "git config --global --unset https.proxy"
+        ]
+      },
+      "troubleshootingTips": [
+        "Run test_connection.py to verify proxy settings",
+        "Timeout errors usually indicate slow proxy connection",
+        "Authentication errors may require proxy credentials",
+        "SSL errors might need certificate configuration",
+        "Consider bypassing proxy for GitHub if not required"
+      ]
+    }
+  }
+}

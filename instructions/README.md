@@ -2,82 +2,39 @@
 
 This directory contains configuration files and setup instructions for various components of the project.
 
-## Configuration Files
+## Instructions to add into the Cursor Settings
 
-### `cursor_prompt.json`
+# Fundamental Principles
 
-- Configuration for Cursor IDE settings
-- Custom prompts and templates
-- Editor behavior settings
-- Project-specific IDE configurations
+- Write clean, simple, readable code.
+- Implement features in the simplest possible way.
+- Keep files small and focused (<200 lines).
+- Test after every meaningful change.
+- Focus on core functionality before optimization.
+- Use clear, consistent naming.
+- Think thoroughly before coding. Write 2-3 reasoning paragraphs.
+- ALWAYS write simple, clean, and modular code.
+- Use clear and easy-to-understand language. Write in short sentences.
+- AVOID huge refactoring and PREFERABLY break down the change in multiple steps.
+- ALWAYS include the location and a little explanation of ALL new files you create as a comment.
 
-### `supabase.json`
+# Error Fixing
 
-- Supabase database configuration
-- Authentication settings
-- Database schema definitions
-- API configurations
-- Security rules and policies
+- DO NOT JUMP TO CONCLUSIONS! Consider multiple possible causes before deciding.
+- Explain the problem in plain English.
+- Make minimal necessary changes, changing as few lines of code as possible.
+- In case of strange errors, ask the user to perform a Perplexity web search to find the latest up-to-date information.
 
-### `proxy_settings.json`
+#Building Process
 
-- Proxy configuration settings
-- Network routing rules
-- API gateway configurations
-- Service mesh settings
+- Verify each new feature works by telling the user how to test it.
+- DO NOT write complicated and confusing code. Opt for the simple & modular approach.
+- When you are not sure what to do, tell the user to perform a web search or to check the documentation.
 
-## Usage
+# Comments
 
-### Cursor IDE Setup
-
-1. Ensure `cursor_prompt.json` is properly configured
-2. Restart Cursor IDE to apply changes
-3. Verify settings are applied correctly
-
-### Supabase Configuration
-
-1. Copy `supabase.json` to your Supabase project
-2. Update necessary credentials and settings
-3. Apply database migrations
-4. Verify database connections
-
-### Proxy Settings
-
-1. Review `proxy_settings.json` for your environment
-2. Apply proxy configurations to your services
-3. Test network connectivity
-4. Verify routing rules
-
-## Best Practices
-
-- Keep sensitive information in environment variables
-- Document all configuration changes
-- Version control configuration templates
-- Use separate configurations for different environments
-- Validate JSON files before deployment
-- Keep configurations DRY
-- Document required environment variables
-- Include setup instructions for new developers
-- Maintain change history
-- Regular configuration reviews
-
-## File Structure
-
-```
-instructions/
-├── cursor_prompt.json    # Cursor IDE configuration
-├── supabase.json        # Database and auth settings
-├── proxy_settings.json  # Network and proxy configs
-└── README.md           # This documentation file
-```
-
-## Adding New Configurations
-
-When adding new configuration files:
-
-1. Follow the existing naming convention
-2. Document all settings thoroughly
-3. Include usage examples
-4. Update this README
-5. Provide default/template values
-6. Include validation steps
+- ALWAYS try to add more helpful and explanatory comments into our code.
+- NEVER delete old comments - unless they are obviously wrong/obsolete.
+- Include LOTS of explanatory comments in the code. ALWAYS write well documented code.
+- Document all changes and their reasoning IN THE COMMENTS YOU WRITE.
+- When writing comments, use clear and easy-to-understand language. Write sentences.

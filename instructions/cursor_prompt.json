@@ -48,6 +48,10 @@
     {
       "prompt": "Only include truly necessary steps",
       "explanation": "Break this large change into the required steps. Only include the truly necessary steps."
+    },
+    {
+      "prompt": "Tell the AI tool that you're a beginner and you don't know how to do something.",
+      "explanation": "Makes the model more confident."
     }
   ],
   "composerInstructions": {
