@@ -1,21 +1,9 @@
 # scripts/setup_project.py
 
-# This script sets up the initial project structure and environment for a web application in next.js.
-# It performs the following tasks:
-# 1. Creates a Python virtual environment in the backend directory
-# 2. Installs required Python packages from requirements.txt
-# 3. Sets up the project directory structure for both frontend and backend
-# 4. Handles platform-specific differences (Windows vs Unix)
+# This script is used to setup the project directory structure and create the necessary configuration files.
+# It also creates a virtual environment and installs the required dependencies.
 
-# Usage:
-# python setup_project.py
-
-# Note: This script should be run from the project root directory
-# It will create the necessary folder structure and virtual environment for development
-
-# The folder structure resulting from this script is as follows:
-# Project Structure:
-#
+# The folder structure will be as follows:
 # 📁 frontend/
 # ├── 📁 src/
 # │   ├── 📁 app/           # Next.js app directory
@@ -49,39 +37,48 @@
 # 📁 instructions/     # Project instructions
 
 import os
-import subprocess
 import sys
 import platform
-import shutil
+import subprocess
 from pathlib import Path
+
+def get_project_root():
+    """Get the project root directory regardless of where the script is run from"""
+    # Get the directory where the script is located
+    script_dir = Path(__file__).resolve().parent
+    # Get the project root (parent of scripts directory)
+    return script_dir.parent
 
 def create_venv():
     """Create and activate virtual environment"""
     print("Setting up Python virtual environment...")
     
-    # Check if venv already exists
-    if os.path.exists('backend/venv'):
+    project_root = get_project_root()
+    venv_path = project_root / 'backend' / '.venv'
+    
+    # Check if .venv already exists
+    if venv_path.exists():
         print("Virtual environment already exists.")
         return
     
     try:
-        # Create venv
-        subprocess.run([sys.executable, '-m', 'venv', 'backend/venv'], check=True)
+        subprocess.run([sys.executable, '-m', 'venv', str(venv_path)], check=True)
         print("Virtual environment created successfully.")
         
         # Determine the pip path based on the operating system
         if platform.system() == "Windows":
-            pip_path = 'backend/venv/Scripts/pip'
+            pip_path = str(venv_path / 'Scripts' / 'pip')
         else:
-            pip_path = 'backend/venv/bin/pip'
+            pip_path = str(venv_path / 'bin' / 'pip')
         
-        # Upgrade pip
-        subprocess.run([pip_path, 'install', '--upgrade', 'pip'], check=True)
+        # Upgrade pip using shell=True
+        subprocess.run([pip_path, 'install', '--upgrade', 'pip'], shell=True, check=True)
         
-        # Install requirements if requirements.txt exists
-        if os.path.exists('backend/requirements.txt'):
+        # Install requirements using shell=True
+        requirements_path = project_root / 'backend' / 'requirements.txt'
+        if requirements_path.exists():
             print("Installing requirements...")
-            subprocess.run([pip_path, 'install', '-r', 'backend/requirements.txt'], check=True)
+            subprocess.run([pip_path, 'install', '-r', str(requirements_path)], shell=True, check=True)
             print("Requirements installed successfully.")
     
     except subprocess.CalledProcessError as e:
@@ -91,6 +88,8 @@ def create_venv():
 def create_directory_structure():
     """Create the project directory structure"""
     print("Creating project directory structure...")
+    
+    project_root = get_project_root()
     
     # Root level directories with their purposes
     directories = {
@@ -119,7 +118,7 @@ def create_directory_structure():
 
     # Create directories and .gitkeep files
     for directory, purpose in directories.items():
-        dir_path = Path(directory)
+        dir_path = project_root / directory
         if not dir_path.exists():
             print(f"Creating {directory} - {purpose}")
             dir_path.mkdir(parents=True, exist_ok=True)
@@ -129,6 +128,8 @@ def create_directory_structure():
 def create_config_files():
     """Create basic configuration files if they don't exist"""
     print("Setting up configuration files...")
+    
+    project_root = get_project_root()
     
     config_files = {
         'frontend/package.json': '''{
@@ -158,13 +159,13 @@ pytest==7.4.3
     "editor.codeActionsOnSave": {
         "source.fixAll": true
     },
-    "python.defaultInterpreterPath": "${workspaceFolder}/backend/venv/bin/python",
+    "python.defaultInterpreterPath": "${workspaceFolder}/backend/.venv/bin/python",
     "python.analysis.extraPaths": ["${workspaceFolder}/backend/src"]
 }'''
     }
 
     for file_path, content in config_files.items():
-        path = Path(file_path)
+        path = project_root / file_path
         if not path.exists():
             print(f"Creating {file_path}")
             path.parent.mkdir(parents=True, exist_ok=True)
@@ -174,6 +175,9 @@ def main():
     """Main setup function"""
     try:
         print("Starting project setup...")
+        
+        # Change to project root directory
+        os.chdir(get_project_root())
         
         # Create directory structure
         create_directory_structure()
@@ -188,9 +192,9 @@ def main():
         print("\nNext steps:")
         print("1. Activate the virtual environment:")
         if platform.system() == "Windows":
-            print("   backend\\venv\\Scripts\\activate")
+            print("   backend\\.venv\\Scripts\\activate")
         else:
-            print("   source backend/venv/bin/activate")
+            print("   source backend/.venv/bin/activate")
         print("2. Install frontend dependencies:")
         print("   cd frontend && npm install")
         print("3. Start developing!")
