@@ -1,8 +1,17 @@
+# backend/requirements.txt
+
+# Core dependencies
 fastapi
 uvicorn
 python-dotenv
+
+# Database related
 sqlalchemy
 psycopg2-binary
+
+# Async task processing
 celery
+
+# AI/ML dependencies
 openai
 transformers

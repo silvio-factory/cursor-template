@@ -1,3 +1,53 @@
+# scripts/setup_project.py
+
+# This script sets up the initial project structure and environment for a web application in next.js.
+# It performs the following tasks:
+# 1. Creates a Python virtual environment in the backend directory
+# 2. Installs required Python packages from requirements.txt
+# 3. Sets up the project directory structure for both frontend and backend
+# 4. Handles platform-specific differences (Windows vs Unix)
+
+# Usage:
+# python setup_project.py
+
+# Note: This script should be run from the project root directory
+# It will create the necessary folder structure and virtual environment for development
+
+# The folder structure resulting from this script is as follows:
+# Project Structure:
+#
+# 📁 frontend/
+# ├── 📁 src/
+# │   ├── 📁 app/           # Next.js app directory
+# │   ├── 📁 components/    # Reusable React components  
+# │   ├── 📁 lib/          # Utility functions
+# │   ├── 📁 styles/       # CSS and styling
+# │   └── 📁 types/        # TypeScript types/interfaces
+# ├── 📁 public/           # Static assets
+#
+# 📁 backend/
+# ├── 📁 src/
+# │   ├── 📁 api/          # API routes and handlers
+# │   ├── 📁 models/       # Database models
+# │   ├── 📁 services/     # Business logic
+# │   ├── 📁 utils/        # Helper functions
+# │   └── 📁 ai/           # AI/ML related code
+# └── 📁 tests/            # Test files
+#
+# 📁 shared/               # Shared between front/backend
+# ├── 📁 types/           # Common type definitions
+# └── 📁 constants/       # Shared constants
+#
+# 📁 infrastructure/
+# ├── 📁 terraform/       # Infrastructure as code
+# └── 📁 docker/         # Docker configuration
+#
+# 📁 scripts/            # Utility scripts
+# 📁 docs/              # Documentation
+# 📁 .github/workflows/ # CI/CD pipelines
+# 📁 .vscode/          # Editor configuration
+# 📁 instructions/     # Project instructions
+
 import os
 import subprocess
 import sys

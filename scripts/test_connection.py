@@ -1,3 +1,9 @@
+# scripts/test_connection.py
+
+# This script tests the internet connection by attempting to connect to GitHub.
+# It also displays the current proxy settings being used.
+# Useful for debugging connection issues during development and deployment.
+
 import requests
 
 # Create a test script

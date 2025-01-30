@@ -1,1 +1,29 @@
-"Database is at which folder?"
+{
+  "comment": "The purpose of this file is to explain repetitive information about different parts of the project, create as many as needed",
+
+  "databaseLocation": "The database is located in the /database folder",
+  "databasePurpose": "The database stores user data, authentication, and application state for the SaaS application",
+
+  "example": {
+    "databaseSchema": {
+      "users": {
+        "description": "Stores user account information",
+        "columns": {
+          "id": "UUID primary key",
+          "email": "User's email address",
+          "created_at": "Timestamp of account creation",
+          "updated_at": "Timestamp of last update"
+        }
+      },
+      "profiles": {
+        "description": "Stores additional user profile data",
+        "columns": {
+          "id": "UUID primary key (references users.id)",
+          "full_name": "User's full name",
+          "avatar_url": "URL to profile picture",
+          "updated_at": "Timestamp of last update"
+        }
+      }
+    }
+  }
+}
