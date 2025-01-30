@@ -1,9 +1,13 @@
 # backend/requirements.txt
 
+# Make sure to select the correct Python Interpreter when starting the project. Select the one in the backend/venv folder.
+# In this case: ..\cursor-template\backend\venv\Scripts\python.exe
+
 # Core dependencies
 fastapi
 uvicorn
 python-dotenv
+pylint
 
 # Database related
 sqlalchemy
