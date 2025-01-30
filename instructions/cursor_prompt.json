@@ -42,8 +42,8 @@
       "explanation": "Makes the model more confident."
     },
     {
-      "prompt": "Be careful with red herrings. Give me the TL;DR of the search results, but be careful. Often the search results contain dangerous and distracting red herrings.",
-      "explanation": "If you're stuck in some errors, a websearh can be good for Cursor. Tag the @Web."
+      "prompt": "Give me the TLDR of the search results, but be careful. Often the search results contain dangerous and distracting red herrings.",
+      "explanation": "If you're stuck in some errors, a websearh can be good for Cursor. If you use other AI Pltforms, with this prompt you tell Cursor to be carefull that some parts can be irrelevant to the error we want to fix."
     },
     {
       "prompt": "Only include truly necessary steps",
